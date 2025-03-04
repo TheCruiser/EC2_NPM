@@ -15,13 +15,13 @@ GithubAPIAWS_listUsers.sh
 
 Step 1: Create an EC2 instance with AWS Console. Use the public IPv4 address from there. Login using 
 
-![snip1](image.png)
+![snip1](../imgs/image.png)
 
 Step 2: Now clone the repo to get the script.
-![snip2](image-1.png)
+![snip2](../imgs/image-1.png)
 
 Step 3: Now export the username and the token, so that you're logged in to the EC2 instance:
-![snip3](image-2.png)
+![snip3](../imgs/image-2.pngg)
 
 Step 4: Now select the organization's name you are part of (in GitHub)
 
@@ -29,6 +29,6 @@ Step 4: Now select the organization's name you are part of (in GitHub)
 
 put up in this format < ./script orgname reponame >
 
-![snip4](image-3.png)
+![snip4](../imgs/image-3.png)
 
 Voila !!! All collaborators having read access to this repo and org will show up. 
