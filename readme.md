@@ -1,40 +1,72 @@
-# aws_resource_track.sh
-----------------------------------------------------------------------------------------
+# Deploying a Node Js Application on AWS EC2
 
-To Track resources using AWS with Shell Script
+### Testing the project locally
 
-A small script where using AWS, we'll be sharing resource usage of AWS Components like EC2, S3, Lambda, IAM etc. at a particular time to the reporting dashboard. Using a Cronjob.
-#1: Create the EC2 instance with AWS and run in MobaxTerm (any OS) {if we need to use Linux in Windows - WSL can help as well.} and more.
+1. Clone this project
+```
+git clone https://github.com/verma-kunal/AWS-Session.git
+```
+2. Setup the following environment variables - `(.env)` file
+```
+DOMAIN= ""
+PORT=3000
+STATIC_DIR="./client"
 
-**NOTE:** change your 'export AWS_DEFAULT_REGION' to your specific one.
+PUBLISHABLE_KEY=""
+SECRET_KEY=""
+```
+3. Initialise and start the project
+```
+npm install
+npm run start
+```
 
-----------------------------------------------------
+### Set up an AWS EC2 instance
 
-# GithubAPIAWS_listUsers.sh
------------------------------------------------------------------------------------------
+1. Create an IAM user & login to your AWS Console
+    - Access Type - Password
+    - Permissions - Admin
+2. Create an EC2 instance
+    - Select an OS image - Ubuntu
+    - Create a new key pair & download `.pem` file
+    - Instance type - t2.micro
+3. Connecting to the instance using ssh
+```
+ssh -i instance.pem ubunutu@<IP_ADDRESS>
+```
 
-### Step 1: Create an EC2 instance with AWS Console. Use the public IPv4 address from there. Login using 
+### Configuring Ubuntu on remote VM
 
-![snip1](./imgs/image.png)
+1. Updating the outdated packages and dependencies
+```
+sudo apt update
+```
+3. Install Git - [Guide by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-22-04) 
+4. Configure Node.js and `npm` - [Guide by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04)
 
-### Step 2: Now clone the repo to get the script.
-![snip2](./imgs/image-1.png)
+### Deploying the project on AWS
 
-### Step 3: Now export the username and the token, so that you're logged in to the EC2 instance:
-![snip3](./imgs/image-2.png)
+1. Clone this project in the remote VM
+```
+git clone https://github.com/verma-kunal/AWS-Session.git
+```
+2. Setup the following environment variables - `(.env)` file
+```
+DOMAIN= ""
+PORT=3000
+STATIC_DIR="./client"
 
-### Step 4: Now select the organization's name you are part of (in GitHub)
+PUBLISHABLE_KEY=""
+SECRET_KEY=""
+```
+> For this project, we'll have to set up an [Elastic IP Address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) for our EC2 & that would be our `DOMAIN`
 
-< it might require to install jq library - sudo apt install jq / pip install jq >
+3. Initialise and start the project
+```
+npm install
+npm run start
+```
 
-put up in this format < ./script orgname reponame >
+> NOTE - We will have to edit the **inbound rules** in the security group of our EC2 (here port 3000), in order to allow traffic from our particular port
 
-![snip4](./imgs/image-3.png)
-
-## Voila !!! All collaborators having read access to this repo and org will show up. 🎉
-
-
-
-------------------------------------------------------------------------------------------
-
-
+### Project is deployed on AWS 🎉
