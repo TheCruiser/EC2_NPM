@@ -1,4 +1,4 @@
-aws_resource_track.sh
+# aws_resource_track.sh
 ----------------------------------------------------------------------------------------
 
 To Track resources using AWS with Shell Script
@@ -10,7 +10,7 @@ A small script where using AWS, we'll be sharing resource usage of AWS Component
 
 ----------------------------------------------------
 
-GithubAPIAWS_listUsers.sh
+# GithubAPIAWS_listUsers.sh
 -----------------------------------------------------------------------------------------
 
 ### Step 1: Create an EC2 instance with AWS Console. Use the public IPv4 address from there. Login using 
