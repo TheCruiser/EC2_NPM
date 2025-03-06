@@ -32,3 +32,9 @@ put up in this format < ./script orgname reponame >
 ![snip4](./imgs/image-3.png)
 
 Voila !!! All collaborators having read access to this repo and org will show up. 
+
+
+
+------------------------------------------------------------------------------------------
+
+
